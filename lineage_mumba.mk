@@ -22,17 +22,6 @@ PRODUCT_MODEL := Motorola G57 Power
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
-TARGET_INCLUDE_AXFX := true
-# Camera information (multiple sensors supported)
-AXION_CAMERA_REAR_INFO := 50,8
-AXION_CAMERA_FRONT_INFO := 16
-
-# Maintainer name (underscores become spaces in the UI)
-AXION_MAINTAINER := Viaan
-
-# Processor name (underscores become spaces)
-AXION_PROCESSOR := Snapdragon_6s_Gen_4
-
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="mumba_g-user 16 W1WAAS36M.48-12-ST12.1 c557f6 release-keys" \
     BuildFingerprint=motorola/mumba_g/mumba:16/W1WAAS36M.48-12-ST12.1/c557f6:user/release-keys \
