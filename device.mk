@@ -8,9 +8,6 @@ PRODUCT_CHECK_PREBUILT_MAX_PAGE_SIZE := false
 # Add common definitions for Qualcomm
 $(call inherit-product, hardware/qcom-caf/common/common.mk)
 
-# Dolby Atmos
-$(call inherit-product, hardware/dolby/dolby.mk)
-
 # Google Camera
 $(call inherit-product-if-exists, hardware/GoogleCamera/GoogleCamera.mk)
 
@@ -90,11 +87,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_module_config_primary.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_module_config_primary.xml \
     $(LOCAL_PATH)/audio/audio_effects_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_parrot/audio_effects_config.xml \
     $(LOCAL_PATH)/audio/audio_effects_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_parrotlite/audio_effects_config.xml
-
-# Axion Kernel Manager
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/kernel/ax_kernel_manager_parrot66.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/ax_kernel_manager.xml \
-    $(LOCAL_PATH)/rootdir/etc/ax_init_parrot66.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/ax_init_parrot66.rc
 
 PRODUCT_COPY_FILES += \
     $(CONFIG_HAL_SRC_DIR)/card-defs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/card-defs.xml \
@@ -254,7 +246,8 @@ PRODUCT_PACKAGES += \
     LineageSettingsProviderMumba \
     SettingsResMumba \
     TelephonyResMumba \
-    ApertureResMumba
+    ApertureResMumba \
+    DolbyFrameworksResCommon
 
 PRODUCT_PACKAGES += \
     CarrierConfigOverlay \
@@ -321,6 +314,10 @@ PRODUCT_PACKAGES += \
 # Shipping API
 BOARD_SHIPPING_API_LEVEL := 202404
 PRODUCT_SHIPPING_API_LEVEL := 36
+
+# Spatial Audio
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.sensor.dynamic.head_tracker.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.dynamic.head_tracker.xml
 
 # Sensors
 PRODUCT_PACKAGES += \
